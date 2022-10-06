@@ -967,6 +967,36 @@
             "rid": "win"
           }
         }
+      },
+      "Dominio/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Entidades": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Dominio.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Dominio.dll": {}
+        }
+      },
+      "Entidades/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.9",
+          "Microsoft.AspNetCore.Identity.UI": "6.0.9",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.9",
+          "Microsoft.Extensions.Identity.Stores": "6.0.9",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "6.0.7"
+        },
+        "compile": {
+          "bin/placeholder/Entidades.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Entidades.dll": {}
+        }
       }
     }
   },
@@ -2481,10 +2511,22 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Dominio/1.0.0": {
+      "type": "project",
+      "path": "../Dominio/Dominio.csproj",
+      "msbuildProject": "../Dominio/Dominio.csproj"
+    },
+    "Entidades/1.0.0": {
+      "type": "project",
+      "path": "../Entidades/Entidades.csproj",
+      "msbuildProject": "../Entidades/Entidades.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Dominio >= 1.0.0",
+      "Entidades >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.9",
       "Microsoft.AspNetCore.Identity.UI >= 6.0.9",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.9",
@@ -2519,7 +2561,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\_WEB\\curso\\_ DDD TUBE\\API_DDD_2022\\Dominio\\Dominio.csproj": {
+              "projectPath": "D:\\_WEB\\curso\\_ DDD TUBE\\API_DDD_2022\\Dominio\\Dominio.csproj"
+            },
+            "D:\\_WEB\\curso\\_ DDD TUBE\\API_DDD_2022\\Entidades\\Entidades.csproj": {
+              "projectPath": "D:\\_WEB\\curso\\_ DDD TUBE\\API_DDD_2022\\Entidades\\Entidades.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
