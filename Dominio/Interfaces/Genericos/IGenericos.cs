@@ -1,6 +1,4 @@
-﻿
-
-namespace Dominio.Interfaces.Generics;
+﻿namespace Dominio.Interfaces.Genericos;
 
 public interface IGenericos<T> where T : class
 {

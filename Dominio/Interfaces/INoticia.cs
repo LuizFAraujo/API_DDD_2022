@@ -1,4 +1,4 @@
-﻿using Dominio.Interfaces.Generics;
+﻿using Dominio.Interfaces.Genericos;
 using Entidades.Entidades;
 using System.Linq.Expressions;
 
