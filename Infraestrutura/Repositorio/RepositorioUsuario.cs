@@ -3,6 +3,8 @@ using Entidades.Entidades;
 using Infraestrutura.Configuracoes;
 using Infraestrutura.Repositorio.Genericos;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Infraestrutura.Repositorio;
 
@@ -15,7 +17,7 @@ public class RepositorioUsuario : RepositorioGenerico<ApplicationUser>, IUsuario
         _optionsBuilder = new DbContextOptions<Contexto>();
     }
 
-    public async Task<bool> AcionarUsuario(string email, string senha, int idade, string celular)
+    public async Task<bool> AdicionarUsuario(string email, string senha, int idade, string celular)
     {
         try
         {
@@ -38,6 +40,24 @@ public class RepositorioUsuario : RepositorioGenerico<ApplicationUser>, IUsuario
         }
 
         return true;
- 
     }
+
+    public async Task<bool> ExisteUsuario(string email, string senha)
+    {
+        try
+        {
+            using (var data = new Contexto(_optionsBuilder))
+            {
+                return await data.ApplicationUser
+                    .Where(u => u.Email.Equals(email) && u.PasswordHash.Equals(senha))
+                    .AsNoTracking()
+                    .AnyAsync();
+            }
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+    }
+
 }
