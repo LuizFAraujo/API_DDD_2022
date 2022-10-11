@@ -10,10 +10,6 @@ public class Contexto : IdentityDbContext<ApplicationUser>
     {
     }
 
-    public Contexto(DbContextOptions options) : base(options)
-    {
-    }
-
     public DbSet<Noticia> Noticia { get; set; }
     public DbSet<ApplicationUser> ApplicationUser { get; set; }
 

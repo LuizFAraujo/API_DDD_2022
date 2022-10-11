@@ -10,7 +10,7 @@ namespace Infraestrutura.Repositorio;
 
 public class RepositorioUsuario : RepositorioGenerico<ApplicationUser>, IUsuario
 {
-    private readonly DbContextOptions _optionsBuilder;
+    private readonly DbContextOptions<Contexto> _optionsBuilder;
 
     public RepositorioUsuario()
     {
