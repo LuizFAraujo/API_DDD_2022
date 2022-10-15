@@ -3,6 +3,7 @@ using Aplicacao.Interfaces;
 using Dominio.Interfaces;
 using Dominio.Interfaces.Genericos;
 using Dominio.Interfaces.InterfaceServicos;
+using Dominio.Servicos;
 using Entidades.Entidades;
 using Infraestrutura.Configuracoes;
 using Infraestrutura.Repositorio;
@@ -16,9 +17,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 // =================================================================
+
+var conn = builder.Configuration.GetConnectionString("DefaultConnection");
 //Contexto criado (Banco de Dados):
-builder.Services.AddDbContext<Contexto>(
-    options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<Contexto>(options => options.UseNpgsql(conn));
 
 builder.Services
     .AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
@@ -31,7 +33,7 @@ builder.Services.AddSingleton<INoticia, RepositorioNoticia>();
 builder.Services.AddSingleton<IUsuario, RepositorioUsuario>();
 
 // SERVIÇO DOMINIO
-builder.Services.AddSingleton<IServicoNoticia, IServicoNoticia>();
+builder.Services.AddSingleton<IServicoNoticia, ServicoNoticia>();
 
 // INTERFACE APLICACAO
 builder.Services.AddSingleton<IAplicacaoNoticia, AplicacaoNoticia>();

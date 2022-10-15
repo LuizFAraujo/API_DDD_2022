@@ -4,11 +4,11 @@ using Entidades.Entidades;
 
 namespace Dominio.Servicos;
 
-public class ServicioNoticia : IServicoNoticia
+public class ServicoNoticia : IServicoNoticia
 {
     private readonly INoticia _INoticia;
 
-    public ServicioNoticia(INoticia iNoticia)
+    public ServicoNoticia(INoticia iNoticia)
     {
         _INoticia = iNoticia;
     }

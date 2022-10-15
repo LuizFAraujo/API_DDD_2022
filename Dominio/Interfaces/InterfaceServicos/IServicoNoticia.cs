@@ -1,5 +1,4 @@
-﻿
-using Entidades.Entidades;
+﻿using Entidades.Entidades;
 
 namespace Dominio.Interfaces.InterfaceServicos;
 
